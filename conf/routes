@@ -1,0 +1,7 @@
++ nocsrf
+POST    /oauth/token                controllers.AuthController.token
+GET     /api/students               controllers.StudentController.listAll
+PUT     /api/students               controllers.StudentController.create
+GET     /api/students/:id           controllers.StudentController.getOne(id: String)
+POST    /api/students/:id           controllers.StudentController.update(id: String)
+DELETE  /api/students/:id           controllers.StudentController.delete(id: String)

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:5
+    container_name: mongo
+    ports:
+      - "27017:27017"
+
+  play-students:
+    build: .
+    container_name: play-students
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+      - sbt-ivy:/root/.ivy2
+      - sbt-coursier:/root/.coursier
+    depends_on:
+      - mongo
+
+volumes:
+  sbt-ivy:
+  sbt-coursier:
